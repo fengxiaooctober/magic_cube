@@ -1,0 +1,95 @@
+.cube{
+	.para {
+		display: inline-block;
+		position: relative;
+		&:before, &:after{
+			content: '';
+			display: inline-block;
+			opacity: .5;
+			border-width: 0px;
+			border-color: transparent;
+			border-style: solid;
+		}
+		$border-length: 100px;
+		$height: 80px;
+		$width: 200px;
+		&.top{
+			$color: red;
+			&:before, &:after{
+				border-top-width: $height/2;
+				border-bottom-width: $height/2;
+			}
+			&:before{
+				border-right-width: $width/2;
+				border-right-color: $color;
+			}
+			&:after{
+				border-left-width: $width/2;
+				border-left-color: $color;
+			}
+		}
+		&.bottom-left{
+			$color: green;
+			height: $border-length - $width/2;
+			&:before, &:after{
+				display: block;
+			}
+			&:before{
+				border-top-width: $height/2;
+				border-left-width: $width/2;
+				border-left-color: $color;
+				padding-bottom: $border-length;
+			}
+			&:after{
+				border-bottom-width: $height/2;
+				border-right-width: $width/2;
+				border-right-color: $color;
+			}
+		}
+		&.bottom-right{
+			$color: yellow;
+			&:before, &:after{
+				display: block;
+			}
+			&:before{
+				border-top-width: $height/2;
+				border-right-width: $width/2;
+				border-right-color: $color;
+				padding-bottom: $border-length;
+			}
+			&:after{
+				border-bottom-width: $height/2;
+				border-left-width: $width/2;
+				border-left-color: $color;
+			}
+		}
+		// Position
+		&{
+			position: absolute;
+			&.top{
+				top: 0;
+				left: 0;
+				&.back{
+					top: $border-length + $height/2;
+					left: 0;
+				}
+			}
+			&.bottom-left{
+				top: $height/2;
+				left: 0;
+				&.back{
+					top: 0;
+					left: $width/2;
+				}
+			}
+			&.bottom-right{
+				top: $height/2;
+				left: $width/2;
+				&.back{
+					top: 0;
+					left: 0;
+				}
+			}
+		}
+	}
+}

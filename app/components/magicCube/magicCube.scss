@@ -1,0 +1,92 @@
+.magic-cube{
+    $length: 40px;
+    display: inline-block;
+    box-sizing: border-box;
+    transform-style: preserve-3d;
+    // animation: rotate 7s infinite linear;
+    transform: rotateX(-30deg) rotateY(30deg) rotateZ(0deg);
+    transition: transform .1s;
+    &{
+        position: fixed;
+        left: 50%;
+        top: 50%;
+    }
+    @keyframes rotate{
+        0%{
+            transform: rotateX(-30deg) rotateY(30deg) rotateZ(0deg);
+        }
+        100%{
+            transform: rotateX(-30deg) rotateY(390deg) rotateZ(0deg);
+        }
+    }
+    .squre{
+        display: inline-block;
+        height: $length - 2px;
+        width: $length - 2px;
+        position: absolute;
+        border: 1px solid black;
+        &:hover{
+            filter: hue-rotate(20deg);
+			-webkit-filter: hue-rotate(20deg);
+        }
+        @mixin pos_num($length, $deg, $degY, $degZ){
+            &.pos_0{
+                transform: rotateX($deg) rotateY($degY) rotateZ($degZ) translate3D(-$length, -$length, $length * 1.5);
+            }
+            &.pos_1{
+                transform: rotateX($deg) rotateY($degY) rotateZ($degZ) translate3D(0, -$length, $length * 1.5);
+            }
+            &.pos_2{
+                transform: rotateX($deg) rotateY($degY) rotateZ($degZ) translate3D($length, -$length, $length * 1.5);
+            }
+            &.pos_3{
+                transform: rotateX($deg) rotateY($degY) rotateZ($degZ) translate3D(-$length, 0, $length * 1.5);
+            }
+            &.pos_4{
+                transform: rotateX($deg) rotateY($degY) rotateZ($degZ) translate3D(0, 0, $length * 1.5);
+            }
+            &.pos_5{
+                transform: rotateX($deg) rotateY($degY) rotateZ($degZ) translate3D($length, 0, $length * 1.5);
+            }
+            &.pos_6{
+                transform: rotateX($deg) rotateY($degY) rotateZ($degZ) translate3D(-$length, $length, $length * 1.5);
+            }
+            &.pos_7{
+                transform: rotateX($deg) rotateY($degY) rotateZ($degZ) translate3D(0, $length, $length * 1.5);
+            }
+            &.pos_8{
+                transform: rotateX($deg) rotateY($degY) rotateZ($degZ) translate3D($length, $length, $length * 1.5);
+            }
+        }
+        &.top{
+            background-color: red;
+            transform: rotateX(90deg) translateZ(1.5 * $length); //base
+            @include pos_num($length, 90deg, 0deg, 0deg);
+        }
+        &.bottom{
+            background-color: orange;
+            transform: rotateX(-90deg) translateZ(-1.5 * $length); //base
+            @include pos_num($length, -90deg, 0deg, 0deg);
+        }
+        &.left{
+            background-color: blue;
+            transform: rotateY(90deg) translateZ(-1.5 * $length); //base
+            @include pos_num($length, 0deg, -90deg, 0deg);
+        }
+        &.right{
+            background-color: green;
+            transform: rotateY(90deg) translateZ(1.5 * $length); //base
+            @include pos_num($length, 0deg, 90deg, 0deg);
+        }
+        &.front{
+            background-color: yellow;
+            transform: rotateY(0deg) translateZ(1.5 * $length); //base
+            @include pos_num($length, 0deg, 0deg, 0deg);
+        }
+        &.back{
+            background-color: white;
+            transform: rotateY(180deg) translateZ(-1.5 * $length); //base
+            @include pos_num($length, 0deg, 180deg, 0deg);
+        }
+    }
+}
