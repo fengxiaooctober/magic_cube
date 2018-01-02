@@ -70,7 +70,7 @@
         }
         &.left{
             background-color: blue;
-            transform: rotateY(90deg) translateZ(-1.5 * $length); //base
+            transform: rotateY(-90deg) translateZ(-1.5 * $length); //base
             @include pos_num($length, 0deg, -90deg, 0deg);
         }
         &.right{
