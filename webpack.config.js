@@ -19,5 +19,8 @@ module.exports = {
 			test: /\.(scss)$/,
 			loader: 'style-loader!css-loader!sass-loader'
 		}]
+	},
+	devServer: {
+		port: 8088
 	}
 };

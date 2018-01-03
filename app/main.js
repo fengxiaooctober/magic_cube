@@ -24,7 +24,8 @@ class Main extends Component{
         this.setState(stateObj);
     }
 	render(){
-		 return <div>
+		 return (
+		 <div>
 			<div><MagicCube transform={this.state.transform} /></div>
 			<div>
 				<button onMouseDown={this.onSetRotate.bind(this,'+', 'X')} onMouseUp={this.onClearRotate}>x +</button>
@@ -39,6 +40,7 @@ class Main extends Component{
 				<button onMouseDown={this.onSetRotate.bind(this,'-', 'Z')} onMouseUp={this.onClearRotate}>z -</button>
 			</div>
 		</div>
+		)
 	}
 	onSetRotate(sign, direction, event){
 		this.handlerRotate = setInterval(function(){

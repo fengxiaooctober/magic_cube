@@ -25,6 +25,7 @@
         width: $length - 2px;
         position: absolute;
         border: 1px solid black;
+        transition: transform 1s;
         &:hover{
             filter: hue-rotate(20deg);
 			-webkit-filter: hue-rotate(20deg);
@@ -58,6 +59,9 @@
                 transform: rotateX($deg) rotateY($degY) rotateZ($degZ) translate3D($length, $length, $length * 1.5);
             }
         }
+        &{
+            background-color: black;
+        }
         &.top{
             background-color: red;
             transform: rotateX(90deg) translateZ(1.5 * $length); //base
@@ -87,6 +91,31 @@
             background-color: white;
             transform: rotateY(180deg) translateZ(-1.5 * $length); //base
             @include pos_num($length, 0deg, 180deg, 0deg);
+        }
+    }
+}
+
+.small-cube{
+    .face{
+        display: inline-block;
+        position: absolute;
+        &.top{
+            background-color: red;
+        }
+        &.bottom{
+            background-color: orange;
+        }
+        &.left{
+            background-color: blue;
+        }
+        &.right{
+            background-color: green;
+        }
+        &.front{
+            background-color: yellow;
+        }
+        &.back{
+            background-color: white;
         }
     }
 }
