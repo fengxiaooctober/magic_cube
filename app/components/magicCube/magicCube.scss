@@ -63,34 +63,53 @@
             background-color: black;
         }
         &.top{
-            background-color: red;
+            // background-color: red;
             transform: rotateX(90deg) translateZ(1.5 * $length); //base
             @include pos_num($length, 90deg, 0deg, 0deg);
         }
         &.bottom{
-            background-color: orange;
+            // background-color: orange;
             transform: rotateX(-90deg) translateZ(-1.5 * $length); //base
             @include pos_num($length, -90deg, 0deg, 0deg);
         }
         &.left{
-            background-color: blue;
+            // background-color: blue;
             transform: rotateY(-90deg) translateZ(-1.5 * $length); //base
             @include pos_num($length, 0deg, -90deg, 0deg);
         }
         &.right{
-            background-color: green;
+            // background-color: green;
             transform: rotateY(90deg) translateZ(1.5 * $length); //base
             @include pos_num($length, 0deg, 90deg, 0deg);
         }
         &.front{
-            background-color: yellow;
+            // background-color: yellow;
             transform: rotateY(0deg) translateZ(1.5 * $length); //base
             @include pos_num($length, 0deg, 0deg, 0deg);
         }
         &.back{
-            background-color: white;
+            // background-color: white;
             transform: rotateY(180deg) translateZ(-1.5 * $length); //base
             @include pos_num($length, 0deg, 180deg, 0deg);
+        }
+        //Color
+        &.red{
+            background-color: red;
+        }
+        &.orange{
+            background-color: orange;
+        }
+        &.blue{
+            background-color: blue;
+        }
+        &.green{
+            background-color: green;
+        }
+        &.yellow{
+            background-color: yellow;
+        }
+        &.white{
+            background-color: white;
         }
     }
 }
